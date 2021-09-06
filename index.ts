@@ -205,3 +205,25 @@ class TriExpandDrop {
         this.curr.startUpdating(cb)
     }
 }
+
+class Renderer {
+
+    ted : TriExpandDrop = new TriExpandDrop()
+    animator : Animator = new Animator()
+
+    render(context : CanvasRenderingContext2D) {
+        this.ted.draw(context)
+    }
+
+    handleTap(cb : Function) {
+        this.ted.startUpdating(() => {
+            this.animator.start(() => {
+                cb()
+                this.ted.update(() => {
+                    this.animator.stop()
+                    cb()
+                })
+            })
+        })
+    }
+}
