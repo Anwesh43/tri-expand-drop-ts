@@ -51,8 +51,8 @@ class DrawingUtil {
         }
         for (var j = 0; j < lines; j++) {
             context.save()
-            context.translate(-size * 0.5 * sc1, -size / 2 + size * 0.5 * j)
-            DrawingUtil.drawLine(context, -size * 0.5 * sc1, 0, size * sc2 * 0.5, 0)
+            context.translate(0, -size / 2 + size * 0.5 * j)
+            DrawingUtil.drawLine(context, -size * 0.5 * sc2, 0, size * sc2 * 0.5, 0)
             context.restore()
         }
         context.restore()
